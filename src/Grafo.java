@@ -9,6 +9,7 @@
  * @author Luis Martinez
  */
 import edu.uci.ics.jung.graph.*;
+import edu.uci.ics.jung.graph.util.EdgeType;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -67,7 +68,7 @@ public class Grafo { //inicio grafo
                     tSalida = tokens.nextToken();
                     tLlegada = tokens.nextToken();
                     precio = tokens.nextToken();
-                    grafito.addEdge(new MyEdge(aereolinea, Double.parseDouble(precio)), tSalida, tLlegada);
+                    grafito.addEdge(new MyEdge(aereolinea, Double.parseDouble(precio)), tSalida, tLlegada, EdgeType.DIRECTED);
                 } 
             }
             System.out.println("Carge las aristas sin casacas!");
