@@ -16,7 +16,7 @@ import java.util.Collection;
 public class Grafo { //inicio grafo
     Graph<String, MyEdge> grafito = new SparseMultigraph<String, MyEdge>();
     
-    public Grafo() {//inicio cosntructor
+    public Grafo() {//inicio constructor
         
     }//fin constructor
     
