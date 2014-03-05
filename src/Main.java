@@ -13,6 +13,6 @@ public class Main {
         //Aqui el main XD
         System.out.println("Probando GitHUb en Netbeans tratra");
         System.out.println("MOdificando desde Gitgub para darle pull desde Net Beans");
-        
+        /*Fue una purba exitosa pinche Net Beans es la mera mera*/
     }
 }
