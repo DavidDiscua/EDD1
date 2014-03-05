@@ -8,6 +8,31 @@
  *
  * @author Luis Martinez
  */
-public class Grafo {
+import edu.uci.ics.jung.graph.*;
+import edu.uci.ics.jung.graph.util.EdgeType;
+import edu.uci.ics.jung.graph.util.Pair;
+import java.util.Collection;
+
+public class Grafo { 
+    Graph<String, MyEdge> grafito = new SparseMultigraph<String, MyEdge>();
     
+    public Grafo() {
+        
+    }
+    
+    private class MyEdge {
+        double price;
+        String aereo;
+        public MyEdge(double price, String aereo) {
+            this.price = price;
+            this.aereo = aereo;
+        }
+        public String toString() {
+            return Double.toString(price) + " con " + aereo;
+        }
+    }
+    
+    private void init() {
+    
+    }
 }
