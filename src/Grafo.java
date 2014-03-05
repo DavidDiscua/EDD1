@@ -16,9 +16,10 @@ import java.io.FileReader;
 import java.util.StringTokenizer;
 
 public class Grafo { //inicio grafo
-    Graph<String, MyEdge> grafito = new SparseMultigraph<String, MyEdge>();
+    Graph<String, MyEdge> grafito;
     
     public Grafo() {//inicio constructor
+        grafito = new SparseMultigraph<String, MyEdge>();
         init();
     }//fin constructor
     
