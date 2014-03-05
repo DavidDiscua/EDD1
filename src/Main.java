@@ -12,5 +12,7 @@ public class Main {
     public static void main(String[] args) {
         //Aqui el main XD
         System.out.println("Probando GitHUb en Netbeans tratra");
+        System.out.println("MOdificando desde Gitgub para darle pull desde Net Beans");
+        
     }
 }
