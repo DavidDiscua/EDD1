@@ -16,5 +16,8 @@ public class Main {
         /*Fue una purba exitosa pinche Net Beans es la mera mera*/
         System.out.println("AVISPA");
         System.out.println("Yo tambien quiero probar!");
+        
+        System.out.println("Ahora si");
+        Grafo grafito = new Grafo();
     }
 }

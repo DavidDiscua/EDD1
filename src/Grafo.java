@@ -9,30 +9,70 @@
  * @author Luis Martinez
  */
 import edu.uci.ics.jung.graph.*;
-import edu.uci.ics.jung.graph.util.EdgeType;
-import edu.uci.ics.jung.graph.util.Pair;
-import java.util.Collection;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.StringTokenizer;
 
 public class Grafo { //inicio grafo
     Graph<String, MyEdge> grafito = new SparseMultigraph<String, MyEdge>();
     
     public Grafo() {//inicio constructor
-        
+        init();
     }//fin constructor
     
     private class MyEdge {//inicio clase MyEdge
-        double price;
+        double precio;
         String aereo;
-        public MyEdge(double price, String aereo) {//inicio clase myEdge
-            this.price = price;
+        public MyEdge(String aereo, double precio) {//inicio clase myEdge
+            this.precio = precio;
             this.aereo = aereo;
         }//fin clase myEdge
         public String toString() {//inicio metodo toString
-            return Double.toString(price) + " con " + aereo;
+            return Double.toString(precio) + " con la aereolinea" + aereo;
         }//fin metodo toString
     }//fin clase MyEdge
     
     private void init() {//inicio metodo init
-    
+        cargarTerminales();
+        cargarAristas();
     }//fin metodo init
+    
+    private void cargarTerminales() {
+        try {
+            File archivo = new File("./src/resources/Terminales de Salida.txt");
+            FileReader fr = new FileReader(archivo);
+            BufferedReader br = new BufferedReader(fr);
+            String tmp;
+            while ((tmp = br.readLine()) != null) {
+                grafito.addVertex(tmp);
+            }
+            System.out.println("Cargue las terminales sin pedo!");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    private void cargarAristas() {
+        try {
+            File archivo = new File("./src/resources/Tabla de Costos de Viaje EDD (delimitado por ''@'').txt");
+            FileReader fr = new FileReader(archivo);
+            BufferedReader br = new BufferedReader(fr);
+            String tmp, tSalida, tLlegada, precio, aereolinea;
+            StringTokenizer tokens = null;
+            while ((tmp = br.readLine()) != null) {
+                tokens = new StringTokenizer(tmp, "@");
+                while (tokens.hasMoreTokens()) {
+                    aereolinea = tokens.nextToken();
+                    tSalida = tokens.nextToken();
+                    tLlegada = tokens.nextToken();
+                    precio = tokens.nextToken();
+                    grafito.addEdge(new MyEdge(aereolinea, Double.parseDouble(precio)), tSalida, tLlegada);
+                } 
+            }
+            System.out.println("Carge las aristas sin casacas!");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }//Fin clase grafo
