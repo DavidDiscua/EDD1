@@ -8,6 +8,7 @@
  *
  * @author Luis Martinez
  */
+import com.sun.corba.se.impl.orbutil.graph.Graph;
 import edu.uci.ics.jung.graph.*;
 import edu.uci.ics.jung.graph.util.EdgeType;
 import java.io.BufferedReader;
@@ -16,7 +17,7 @@ import java.io.FileReader;
 import java.util.StringTokenizer;
 
 public class Grafo { //inicio grafo
-    Graph<String, MyEdge> grafito;
+   SparseMultigraph<String, MyEdge> grafito;
     
     public Grafo() {//inicio constructor
         grafito = new SparseMultigraph<String, MyEdge>();
