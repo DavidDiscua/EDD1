@@ -5,7 +5,9 @@ import edu.uci.ics.jung.graph.SparseMultigraph;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Set;
 import javax.lang.model.SourceVersion;
 import javax.tools.Tool;
@@ -51,10 +53,22 @@ public class Main {
 //         for (int i = 0; i <Aristas.length; i++) {
 //          //  System.out.println((i+1)+" "+Aristas[i]);
 //        }
-        ArrayList<String> c = new ArrayList<String>();
-        c.add("LIM");
-        c.add("SAL");
-        grafito.calcularCamino(c);
+        System.out.println(""
+                + "*****************************************************\n"
+                + "**     Universidad Tecnologica Centroamericana     **\n"
+                + "**                     UNITEC                      **\n"
+                + "*****************************************************\n");
+        System.out.println("Seleccione una terminal de salida:");
+        Queue<String> ciudades = new LinkedList<String>();
+        ciudades.add("CUN");
+        ciudades.add("TGU");
+        String tSalida = "LIM";
+        String tLlegada = "SAL";
+        ArrayList caminos = grafito.calcularCamino(ciudades);
+        
+        System.out.println("The Shortes Path from " + tSalida + " to " + tLlegada + " is: ");
+        System.out.println(caminos.get(0).toString());
+        System.out.println("and the length of the path is: " + caminos.get(1).toString());
     }
 }//fin clase main
 

@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 import java.util.StringTokenizer;
 import org.apache.commons.collections15.Transformer;
 
@@ -52,7 +53,7 @@ public class Grafo { //inicio grafo
             return tLlegada;
         }
         public String toString() {//inicio metodo toString
-            return "Saliendo de: " + tSalida + " llegando a: " + tLlegada + ", por " + aereo + " con un precio de " + precio + "\n";
+            return "\nSaliendo de: " + tSalida + " llegando a: " + tLlegada + " viajando por " + aereo + " con un precio de " + precio;
         }//fin metodo toString
     }//fin clase MyEdge
     
@@ -97,17 +98,40 @@ public class Grafo { //inicio grafo
         }
     }
     
-    public void calcularCamino(ArrayList<String> caminos) {
+    public ArrayList calcularCamino(Queue<String> ciudades) {
+        ArrayList retVal = new ArrayList();
+        System.out.println("size " + ciudades.size());
         Transformer<MyEdge, Double> optimusPrime = new Transformer<MyEdge, Double>() {
             public Double transform(MyEdge arista) {
                 return arista.getPrecio();
             }
         };
+        
+        String tmp1, tmp2;
+        tmp1 = ciudades.poll();
+        tmp2 = ciudades.element();
         DijkstraShortestPath<String, MyEdge> dijkstra = new DijkstraShortestPath(grafito, optimusPrime);
-        List<MyEdge> lista = dijkstra.getPath(caminos.get(0), caminos.get(caminos.size() - 1));
-        Number distancia = dijkstra.getDistance(caminos.get(0), caminos.get(caminos.size() - 1));
-        System.out.println("The Shortes Path from " + caminos.get(0) + " to " + caminos.get(caminos.size() - 1) + " is: ");
-        System.out.println(lista.toString());
-        System.out.println("and the length of the path is: " + distancia);
+        List<MyEdge> lista = dijkstra.getPath(tmp1, tmp2);
+        
+        retVal.add(lista);
+        retVal.add(dijkstra.getDistance(tmp1, tmp2));
+        System.out.println("r " + retVal.get(1));
+        System.out.println("");
+        
+        while ((tmp1 = ciudades.poll()) != null && (tmp2 = ciudades.peek()) != null) {
+            System.out.println("tmp1 " + tmp1);
+            System.out.println("tmp2 " + tmp2);
+            System.out.println("");
+            
+            Number distancia = dijkstra.getDistance(tmp1, tmp2);
+            ((List<MyEdge>)retVal.get(0)).addAll(dijkstra.getPath(tmp1, tmp2));
+            retVal.set(1, (distancia.doubleValue() + Double.parseDouble(retVal.get(1).toString())));
+            System.out.println("r " + retVal.get(1));
+            System.out.println("");
+        }
+//        System.out.println("The Shortes Path from " + ciudades.get(0) + " to " + ciudades.get(ciudades.size() - 1) + " is: ");
+//        System.out.println(lista.toString());
+//        System.out.println("and the length of the path is: " + distancia);
+        return retVal;
     }
 }//Fin clase grafo
