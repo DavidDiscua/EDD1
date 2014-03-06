@@ -1,3 +1,10 @@
+
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Set;
+import javax.lang.model.SourceVersion;
+import javax.tools.Tool;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +20,18 @@ public class Main {
        
         Grafo grafito = new Grafo();
         /*probar imprimir terminales*/
-        for (int i = 0; i <grafito.grafito.getVertexCount(); i++) {//inicio for
+        
+        System.out.println("No  Aereolinea    TSalida   TLlegada     (Cost US$)");
+        for (int i = 0; i <grafito.grafito.getEdgeCount(); i++) {//inicio for
             
-            System.out.println(grafito.grafito.getVertices());
+
             
         }//fin for
     }
-}
+
+
+    
+    
+}//fin clase main
+
+
