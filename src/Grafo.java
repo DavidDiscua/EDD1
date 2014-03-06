@@ -49,7 +49,6 @@ public class Grafo { //inicio grafo
             while ((tmp = br.readLine()) != null) {
                 grafito.addVertex(tmp);
             }
-            System.out.println("Cargue las terminales sin pedo!");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -72,9 +71,10 @@ public class Grafo { //inicio grafo
                     grafito.addEdge(new MyEdge(aereolinea, Double.parseDouble(precio)), tSalida, tLlegada, EdgeType.DIRECTED);
                 } 
             }
-            System.out.println("Carge las aristas sin casacas!");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+    
+    
 }//Fin clase grafo
