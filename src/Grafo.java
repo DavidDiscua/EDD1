@@ -18,6 +18,7 @@ import java.util.StringTokenizer;
 
 public class Grafo { //inicio grafo
    SparseMultigraph<String, MyEdge> grafito;
+   //HOLAAAA MUNDO
     
     public Grafo() {//inicio constructor
         grafito = new SparseMultigraph<String, MyEdge>();

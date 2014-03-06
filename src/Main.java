@@ -10,14 +10,13 @@
  */
 public class Main {
     public static void main(String[] args) {
-        //Aqui el main XD
-        System.out.println("Probando GitHUb en Netbeans tratra");
-        System.out.println("MOdificando desde Gitgub para darle pull desde Net Beans");
-        /*Fue una purba exitosa pinche Net Beans es la mera mera*/
-        System.out.println("AVISPA");
-        System.out.println("Yo tambien quiero probar!");
-        
-        System.out.println("Ahora si");
+       
         Grafo grafito = new Grafo();
+        /*probar imprimir terminales*/
+        for (int i = 0; i <grafito.grafito.getVertexCount(); i++) {//inicio for
+            
+            System.out.println(grafito.grafito.getVertices());
+            
+        }//fin for
     }
 }
