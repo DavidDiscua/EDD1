@@ -26,32 +26,35 @@ public class Main {
         Grafo grafito = new Grafo();
         /*probar imprimir terminales*/
 
-        System.out.println("No  Aereolinea    TSalida   TLlegada     (Cost US$)");
-     /*   for (int i = 0; i < grafito.grafito.getEdgeCount(); i++) {//inicio for
-            System.out.println((i + 1));
-
-
-        }//fin for*/
-        
-        Object[] Vertices = grafito.grafito.getVertices().toArray();
-        Object[] Aristas = grafito.grafito.getEdges().toArray();
-      
-        for (int i = 0; i <Vertices.length; i++) {
-           // System.out.println((i+1)+" "+Vertices[i]);
-            
-           // System.out.println(Vertices[0].toString()+" "+grafito.grafito.getIncidentEdges(Vertices[0].toString()));
-            //System.out.println(Vertices[0].toString()+" "+grafito.grafito.getNeighbors(Vertices[0].toString()));
-            for (int j = 1; j <Vertices.length; j++) {
-                
-            
-             System.out.println(Vertices[i].toString()+" "+grafito.grafito.findEdge(Vertices[i].toString(),Vertices[j].toString())+Vertices[j].toString());
-             }
-          }//
-        
-         for (int i = 0; i <Aristas.length; i++) {
-          //  System.out.println((i+1)+" "+Aristas[i]);
-        }
-
+//        System.out.println("No  Aereolinea    TSalida   TLlegada     (Cost US$)");
+//     /*   for (int i = 0; i < grafito.grafito.getEdgeCount(); i++) {//inicio for
+//            System.out.println((i + 1));
+//
+//
+//        }//fin for*/
+//        
+//        Object[] Vertices = grafito.grafito.getVertices().toArray();
+//        Object[] Aristas = grafito.grafito.getEdges().toArray();
+//      
+//        for (int i = 0; i <Vertices.length; i++) {
+//           // System.out.println((i+1)+" "+Vertices[i]);
+//            
+//           // System.out.println(Vertices[0].toString()+" "+grafito.grafito.getIncidentEdges(Vertices[0].toString()));
+//            //System.out.println(Vertices[0].toString()+" "+grafito.grafito.getNeighbors(Vertices[0].toString()));
+//            for (int j = 1; j <Vertices.length; j++) {
+//                
+//            
+//             System.out.println(Vertices[i].toString()+" "+grafito.grafito.findEdge(Vertices[i].toString(),Vertices[j].toString())+Vertices[j].toString());
+//             }
+//          }//
+//        
+//         for (int i = 0; i <Aristas.length; i++) {
+//          //  System.out.println((i+1)+" "+Aristas[i]);
+//        }
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("LIM");
+        c.add("SAL");
+        grafito.calcularCamino(c);
     }
 }//fin clase main
 

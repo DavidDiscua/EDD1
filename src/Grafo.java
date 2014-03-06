@@ -8,13 +8,16 @@
  *
  * @author Luis Martinez
  */
-import com.sun.corba.se.impl.orbutil.graph.Graph;
+import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
 import edu.uci.ics.jung.graph.*;
 import edu.uci.ics.jung.graph.util.EdgeType;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
+import org.apache.commons.collections15.Transformer;
 
 public class Grafo { //inicio grafo
    SparseMultigraph<String, MyEdge> grafito;
@@ -26,14 +29,30 @@ public class Grafo { //inicio grafo
     }//fin constructor
     
     private class MyEdge {//inicio clase MyEdge
-        double precio;
-        String aereo;
-        public MyEdge(String aereo, double precio) {//inicio clase myEdge
+        private double precio;
+        private String aereo;
+        private String tSalida;
+        private String tLlegada;
+        public MyEdge(String aereo, double precio, String tSalida, String tLlegada) {//inicio clase myEdge
             this.precio = precio;
             this.aereo = aereo;
+            this.tSalida = tSalida;
+            this.tLlegada = tLlegada;
         }//fin clase myEdge
+        public double getPrecio() {
+            return precio;
+        }
+        public String getAereo() {
+            return aereo;
+        }
+        public String getTSalida() {
+            return tSalida;
+        }
+        public String getTLlegada() {
+            return tLlegada;
+        }
         public String toString() {//inicio metodo toString
-            return Double.toString(precio) + " con la aereolinea" + aereo;
+            return "Saliendo de: " + tSalida + " llegando a: " + tLlegada + ", por " + aereo + " con un precio de " + precio + "\n";
         }//fin metodo toString
     }//fin clase MyEdge
     
@@ -70,7 +89,7 @@ public class Grafo { //inicio grafo
                     tSalida = tokens.nextToken();
                     tLlegada = tokens.nextToken();
                     precio = tokens.nextToken();
-                    grafito.addEdge(new MyEdge(aereolinea, Double.parseDouble(precio)), tSalida, tLlegada, EdgeType.DIRECTED);
+                    grafito.addEdge(new MyEdge(aereolinea, Double.parseDouble(precio), tSalida, tLlegada), tSalida, tLlegada, EdgeType.DIRECTED);
                 } 
             }
         } catch (Exception ex) {
@@ -78,5 +97,17 @@ public class Grafo { //inicio grafo
         }
     }
     
-    
+    public void calcularCamino(ArrayList<String> caminos) {
+        Transformer<MyEdge, Double> optimusPrime = new Transformer<MyEdge, Double>() {
+            public Double transform(MyEdge arista) {
+                return arista.getPrecio();
+            }
+        };
+        DijkstraShortestPath<String, MyEdge> dijkstra = new DijkstraShortestPath(grafito, optimusPrime);
+        List<MyEdge> lista = dijkstra.getPath(caminos.get(0), caminos.get(caminos.size() - 1));
+        Number distancia = dijkstra.getDistance(caminos.get(0), caminos.get(caminos.size() - 1));
+        System.out.println("The Shortes Path from " + caminos.get(0) + " to " + caminos.get(caminos.size() - 1) + " is: ");
+        System.out.println(lista.toString());
+        System.out.println("and the length of the path is: " + distancia);
+    }
 }//Fin clase grafo
