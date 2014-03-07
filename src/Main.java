@@ -13,9 +13,11 @@ public class Main {
        
         Grafo grafito = new Grafo();
         /*probar imprimir terminales*/
-        for (int i = 0; i <grafito.grafito.getVertexCount(); i++) {//inicio for
+        
+        System.out.println("No  Aereolinea    TSalida   TLlegada     (Cost US$)");
+        for (int i = 0; i <grafito.grafito.getEdgeCount(); i++) {//inicio for
             
-            System.out.println(grafito.grafito.getVertices());
+
             
         }//fin for
     }
