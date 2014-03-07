@@ -258,7 +258,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
     private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
 
 
-        if (ciudades.isEmpty() == false) {
+        if (ciudades.isEmpty() == false) {//verificar si la cola esta vacia
 
             mensaje.setText("La forma de hacer el tour, mediante la ruta mas corta,\n"
                     + "desde " + nums.get(0).toString() + " hasta " + nums.get(nums.size() - 1).toString() + " es: ");
