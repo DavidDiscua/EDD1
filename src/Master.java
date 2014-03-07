@@ -51,6 +51,8 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TEXT2 = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -70,10 +72,11 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         jSeparator4 = new javax.swing.JSeparator();
         PRECIO1 = new javax.swing.JLabel();
         COSTO2 = new javax.swing.JLabel();
-        SALIDA = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         mensaje = new javax.swing.JLabel();
         IMAGEN = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TEXT = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EL VIAJERO");
@@ -83,6 +86,14 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         setMinimumSize(new java.awt.Dimension(731, 640));
         setPreferredSize(new java.awt.Dimension(731, 640));
         getContentPane().setLayout(null);
+
+        TEXT2.setEditable(false);
+        TEXT2.setColumns(20);
+        TEXT2.setRows(5);
+        jScrollPane2.setViewportView(TEXT2);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(390, 430, 310, 80);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 80, 730, 20);
 
@@ -201,15 +212,10 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         getContentPane().add(COSTO2);
         COSTO2.setBounds(520, 510, 150, 30);
 
-        SALIDA.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        SALIDA.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        getContentPane().add(SALIDA);
-        SALIDA.setBounds(390, 290, 300, 80);
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("La manera mas economica de regresarse es:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(410, 410, 260, 30);
+        jLabel4.setBounds(410, 400, 260, 30);
 
         mensaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         mensaje.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -222,6 +228,14 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         IMAGEN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Viajero.jpg"))); // NOI18N
         getContentPane().add(IMAGEN);
         IMAGEN.setBounds(0, 0, 730, 80);
+
+        TEXT.setEditable(false);
+        TEXT.setColumns(20);
+        TEXT.setRows(5);
+        jScrollPane3.setViewportView(TEXT);
+
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(390, 280, 310, 90);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -260,19 +274,20 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
 
         if (ciudades.isEmpty() == false) {//verificar si la cola esta vacia
 
-            mensaje.setText("La forma de hacer el tour, mediante la ruta mas corta,\n"
-                    + "desde " + nums.get(0).toString() + " hasta " + nums.get(nums.size() - 1).toString() + " es: ");
+            mensaje.setText("Tour, mediante la ruta mas corta(barata),\n"
+                    + "desde " + nums.get(0).toString() + " hasta " + nums.get(nums.size() - 1).toString());
             caminos = grafito.calcularCamino(ciudades);
-            SALIDA.setText(caminos.get(0).toString());
+            TEXT.setText(caminos.get(0).toString());
+            //SALIDAs.setText(caminos.get(0).toString());
             COSTO.setText(caminos.get(1).toString());
-
+            
             //sacar inverso
             Queue<String> temp = new LinkedList<String>();
             temp.add(nums.get(0).toString());
             temp.add(nums.get(nums.size() - 1).toString());
 
             caminos = grafito.calcularCamino(temp);
-            SALIDA2.setText(caminos.get(0).toString());
+            TEXT2.setText(caminos.get(0).toString());
             COSTO2.setText(caminos.get(1).toString());
 
 
@@ -297,8 +312,9 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
             nums.clear();
             JOptionPane.showMessageDialog(this, "Se ha limpiado la lista correctamente");
         }//fin else limpiar listas
-        SALIDA.setText("");
-        SALIDA2.setText("");
+       
+        TEXT.setText("");
+        TEXT2.setText("");
         COSTO.setText("");
         COSTO2.setText("");
     }//GEN-LAST:event_jButton2MouseClicked
@@ -346,8 +362,9 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
     private javax.swing.JComboBox Lista;
     private javax.swing.JLabel PRECIO;
     private javax.swing.JLabel PRECIO1;
-    private javax.swing.JLabel SALIDA;
     private javax.swing.JLabel SALIDA2;
+    private javax.swing.JTextArea TEXT;
+    private javax.swing.JTextArea TEXT2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -356,6 +373,8 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
