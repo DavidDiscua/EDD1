@@ -44,7 +44,7 @@ public class Main {
             for (int j = 1; j <Vertices.length; j++) {
                 
             
-             System.out.println(Vertices[0].toString()+" "+grafito.grafito.findEdge(Vertices[i].toString(),Vertices[j].toString())+Vertices[j].toString());
+             System.out.println(Vertices[i].toString()+" "+grafito.grafito.findEdge(Vertices[i].toString(),Vertices[j].toString())+Vertices[j].toString());
              }
           }//
         
