@@ -61,7 +61,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         Lista = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        CALCULAR = new javax.swing.JToggleButton();
         jButton2 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         COSTO = new javax.swing.JLabel();
@@ -155,14 +155,14 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         getContentPane().add(jSeparator2);
         jSeparator2.setBounds(350, 250, 380, 10);
 
-        jToggleButton1.setText("Calcular");
-        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        CALCULAR.setText("Calcular");
+        CALCULAR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButton1MouseClicked(evt);
+                CALCULARMouseClicked(evt);
             }
         });
-        getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(370, 200, 110, 30);
+        getContentPane().add(CALCULAR);
+        CALCULAR.setBounds(370, 200, 110, 30);
 
         jButton2.setText("Clear");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -268,7 +268,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
 
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
+    private void CALCULARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CALCULARMouseClicked
 
 
         if (ciudades.isEmpty() == false &&nums.size()>=2) {//verificar si la cola esta vacia
@@ -296,8 +296,9 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         ciudades.clear();
         Lista.removeAllItems();
         nums.clear();
+        
 
-    }//GEN-LAST:event_jToggleButton1MouseClicked
+    }//GEN-LAST:event_CALCULARMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
 
@@ -354,6 +355,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         });
     }//FIN METODO MAIN
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton CALCULAR;
     private javax.swing.JLabel COSTO;
     private javax.swing.JLabel COSTO2;
     private javax.swing.JLabel IMAGEN;
@@ -377,7 +379,6 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel mensaje;
     private javax.swing.JTable seleccion_salida;
     // End of variables declaration//GEN-END:variables
