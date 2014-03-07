@@ -21,48 +21,56 @@ import java.util.StringTokenizer;
 import org.apache.commons.collections15.Transformer;
 
 public class Grafo { //inicio grafo
-   SparseMultigraph<String, MyEdge> grafito;
-   //HOLAAAA MUNDO
-    
+
+    SparseMultigraph<String, MyEdge> grafito;
+    //HOLAAAA MUNDO
+
     public Grafo() {//inicio constructor
         grafito = new SparseMultigraph<String, MyEdge>();
         init();
     }//fin constructor
-    
+
     private class MyEdge {//inicio clase MyEdge
+
         private double precio;
         private String aereo;
         private String tSalida;
         private String tLlegada;
+
         public MyEdge(String aereo, double precio, String tSalida, String tLlegada) {//inicio clase myEdge
             this.precio = precio;
             this.aereo = aereo;
             this.tSalida = tSalida;
             this.tLlegada = tLlegada;
         }//fin clase myEdge
+
         public double getPrecio() {
             return precio;
         }
+
         public String getAereo() {
             return aereo;
         }
+
         public String getTSalida() {
             return tSalida;
         }
+
         public String getTLlegada() {
             return tLlegada;
         }
+
         public String toString() {//inicio metodo toString
             return "\nSaliendo de: " + tSalida + " llegando a: " + tLlegada + " viajando por " + aereo + " con un precio de " + precio;
         }//fin metodo toString
     }//fin clase MyEdge
-    
+
     private void init() {//inicio metodo init
         cargarTerminales();
         cargarAristas();
     }//fin metodo init
-    
-    private void cargarTerminales() {
+
+    private void cargarTerminales() {//inicio cargar Terminales
         try {
             File archivo = new File("./src/resources/Terminales de Salida.txt");
             FileReader fr = new FileReader(archivo);
@@ -74,9 +82,9 @@ public class Grafo { //inicio grafo
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
-    
-    private void cargarAristas() {
+    }//fin cargar Terminales
+
+    private void cargarAristas() {//inicio cargar Aristas
         try {
             File archivo = new File("./src/resources/Tabla de Costos de Viaje EDD (delimitado por ''@'').txt");
             FileReader fr = new FileReader(archivo);
@@ -91,14 +99,14 @@ public class Grafo { //inicio grafo
                     tLlegada = tokens.nextToken();
                     precio = tokens.nextToken();
                     grafito.addEdge(new MyEdge(aereolinea, Double.parseDouble(precio), tSalida, tLlegada), tSalida, tLlegada, EdgeType.DIRECTED);
-                } 
+                }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
-    
-    public ArrayList calcularCamino(Queue<String> ciudades) {
+    }//fin cargar Aristas
+
+    public ArrayList calcularCamino(Queue<String> ciudades) {//inicio calcular Camino
         ArrayList retVal = new ArrayList();
         System.out.println("size " + ciudades.size());
         Transformer<MyEdge, Double> optimusPrime = new Transformer<MyEdge, Double>() {
@@ -106,32 +114,29 @@ public class Grafo { //inicio grafo
                 return arista.getPrecio();
             }
         };
-        
+
         String tmp1, tmp2;
         tmp1 = ciudades.poll();
         tmp2 = ciudades.element();
         DijkstraShortestPath<String, MyEdge> dijkstra = new DijkstraShortestPath(grafito, optimusPrime);
         List<MyEdge> lista = dijkstra.getPath(tmp1, tmp2);
-        
+
         retVal.add(lista);
         retVal.add(dijkstra.getDistance(tmp1, tmp2));
         System.out.println("r " + retVal.get(1));
         System.out.println("");
-        
+
         while ((tmp1 = ciudades.poll()) != null && (tmp2 = ciudades.peek()) != null) {
             System.out.println("tmp1 " + tmp1);
             System.out.println("tmp2 " + tmp2);
             System.out.println("");
-            
+
             Number distancia = dijkstra.getDistance(tmp1, tmp2);
-            ((List<MyEdge>)retVal.get(0)).addAll(dijkstra.getPath(tmp1, tmp2));
+            ((List<MyEdge>) retVal.get(0)).addAll(dijkstra.getPath(tmp1, tmp2));
             retVal.set(1, (distancia.doubleValue() + Double.parseDouble(retVal.get(1).toString())));
             System.out.println("r " + retVal.get(1));
             System.out.println("");
         }
-//        System.out.println("The Shortes Path from " + ciudades.get(0) + " to " + ciudades.get(ciudades.size() - 1) + " is: ");
-//        System.out.println(lista.toString());
-//        System.out.println("and the length of the path is: " + distancia);
         return retVal;
-    }
+    }//fin calcular Camino
 }//Fin clase grafo
