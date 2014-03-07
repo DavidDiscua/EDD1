@@ -127,15 +127,12 @@ public class Grafo { //inicio grafo
         System.out.println("");
 
         while ((tmp1 = ciudades.poll()) != null && (tmp2 = ciudades.peek()) != null) {
-            System.out.println("tmp1 " + tmp1);
-            System.out.println("tmp2 " + tmp2);
-            System.out.println("");
+
 
             Number distancia = dijkstra.getDistance(tmp1, tmp2);
             ((List<MyEdge>) retVal.get(0)).addAll(dijkstra.getPath(tmp1, tmp2));
             retVal.set(1, (distancia.doubleValue() + Double.parseDouble(retVal.get(1).toString())));
-            System.out.println("r " + retVal.get(1));
-            System.out.println("");
+
         }
         return retVal;
     }//fin calcular Camino

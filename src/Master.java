@@ -281,13 +281,13 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
             COSTO.setText(caminos.get(1).toString());
             
             //sacar inverso
-            Queue<String> temp = new LinkedList<String>();
-            temp.add(nums.get(0).toString());
+            Queue<String> temp = new LinkedList<String>();            
             temp.add(nums.get(nums.size() - 1).toString());
+            temp.add(nums.get(0).toString());
 
             caminos = grafito.calcularCamino(temp);
-          //  TEXT2.setText(caminos.get(0).toString());
-           // COSTO2.setText(caminos.get(1).toString());
+            TEXT2.setText(caminos.get(0).toString());
+            COSTO2.setText(caminos.get(1).toString());
 
 
         } else if (ciudades.isEmpty() == true) {
