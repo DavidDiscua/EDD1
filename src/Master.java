@@ -272,13 +272,12 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
     private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
 
 
-        if (ciudades.isEmpty() == false) {//verificar si la cola esta vacia
+        if (ciudades.isEmpty() == false &&nums.size()>=2) {//verificar si la cola esta vacia
 
-            mensaje.setText("Tour, mediante la ruta mas corta(barata),\n"
-                    + "desde " + nums.get(0).toString() + " hasta " + nums.get(nums.size() - 1).toString());
+            mensaje.setText("Tour mediante ruta mas corta(barata),"
+                    + "de " + nums.get(0).toString() + " hasta " + nums.get(nums.size() - 1).toString());
             caminos = grafito.calcularCamino(ciudades);
             TEXT.setText(caminos.get(0).toString());
-            //SALIDAs.setText(caminos.get(0).toString());
             COSTO.setText(caminos.get(1).toString());
             
             //sacar inverso
@@ -287,12 +286,12 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
             temp.add(nums.get(nums.size() - 1).toString());
 
             caminos = grafito.calcularCamino(temp);
-            TEXT2.setText(caminos.get(0).toString());
-            COSTO2.setText(caminos.get(1).toString());
+          //  TEXT2.setText(caminos.get(0).toString());
+           // COSTO2.setText(caminos.get(1).toString());
 
 
         } else if (ciudades.isEmpty() == true) {
-            JOptionPane.showMessageDialog(this, "No has seleccionado las Ciudades aun");
+            JOptionPane.showMessageDialog(this, "No has seleccionado las Ciudades aun o el numero es menor a 2");
         }
         //vaciar los items y pilas
         ciudades.clear();
