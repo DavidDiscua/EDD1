@@ -243,7 +243,6 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
     private void seleccion_salidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seleccion_salidaMouseClicked
         // Obtener Fila
         setFila(seleccion_salida.getSelectedRow());
-        System.out.println(getFila());
 
 
     }//GEN-LAST:event_seleccion_salidaMouseClicked

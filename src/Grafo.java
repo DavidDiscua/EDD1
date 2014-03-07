@@ -108,7 +108,6 @@ public class Grafo { //inicio grafo
 
     public ArrayList calcularCamino(Queue<String> ciudades) {//inicio calcular Camino
         ArrayList retVal = new ArrayList();
-        System.out.println("size " + ciudades.size());
         Transformer<MyEdge, Double> optimusPrime = new Transformer<MyEdge, Double>() {
             public Double transform(MyEdge arista) {
                 return arista.getPrecio();
@@ -123,8 +122,6 @@ public class Grafo { //inicio grafo
 
         retVal.add(lista);
         retVal.add(dijkstra.getDistance(tmp1, tmp2));
-        System.out.println("r " + retVal.get(1));
-        System.out.println("");
 
         while ((tmp1 = ciudades.poll()) != null && (tmp2 = ciudades.peek()) != null) {
 
