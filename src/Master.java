@@ -207,7 +207,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         getContentPane().add(jLabel4);
         jLabel4.setBounds(410, 410, 260, 30);
 
-        mensaje.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        mensaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         mensaje.setText("MENSAJE");
         mensaje.setToolTipText("");
         mensaje.setVerticalAlignment(javax.swing.SwingConstants.TOP);

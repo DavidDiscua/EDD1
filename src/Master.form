@@ -294,7 +294,7 @@
     <Component class="javax.swing.JLabel" name="mensaje">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="10" style="1"/>
+          <Font name="Tahoma" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="MENSAJE"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
