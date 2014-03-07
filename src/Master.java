@@ -165,10 +165,12 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         jSeparator3.setBounds(0, 540, 730, 10);
 
         COSTO.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        COSTO.setForeground(new java.awt.Color(51, 0, 255));
         getContentPane().add(COSTO);
         COSTO.setBounds(520, 370, 150, 30);
 
         SALIDA2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        SALIDA2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         getContentPane().add(SALIDA2);
         SALIDA2.setBounds(390, 440, 300, 70);
 
@@ -195,12 +197,14 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         PRECIO1.setBounds(360, 510, 140, 30);
 
         COSTO2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        COSTO2.setForeground(new java.awt.Color(255, 0, 51));
         getContentPane().add(COSTO2);
         COSTO2.setBounds(520, 510, 150, 30);
 
         SALIDA.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        SALIDA.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         getContentPane().add(SALIDA);
-        SALIDA.setBounds(390, 300, 300, 70);
+        SALIDA.setBounds(390, 290, 300, 80);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("La manera mas economica de regresarse es:");
@@ -208,6 +212,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         jLabel4.setBounds(410, 410, 260, 30);
 
         mensaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        mensaje.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         mensaje.setText("MENSAJE");
         mensaje.setToolTipText("");
         mensaje.setVerticalAlignment(javax.swing.SwingConstants.TOP);
