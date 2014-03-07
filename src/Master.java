@@ -93,7 +93,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         jScrollPane2.setViewportView(TEXT2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(390, 430, 310, 80);
+        jScrollPane2.setBounds(360, 430, 350, 80);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 80, 730, 20);
 
@@ -219,7 +219,6 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
 
         mensaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         mensaje.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mensaje.setText("MENSAJE");
         mensaje.setToolTipText("");
         mensaje.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         getContentPane().add(mensaje);
@@ -235,7 +234,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
         jScrollPane3.setViewportView(TEXT);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(390, 280, 310, 90);
+        jScrollPane3.setBounds(360, 280, 350, 90);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
