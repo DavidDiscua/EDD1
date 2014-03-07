@@ -15,6 +15,8 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
 import javax.lang.model.SourceVersion;
+import javax.swing.*;
+
 import javax.tools.Tool;
 
 /*
@@ -26,7 +28,28 @@ import javax.tools.Tool;
  *
  * @author lualmaca
  */
-public class Main {
+public class Main extends JFrame{
+    
+   
+    private JLabel Cabecera;
+    private JLabel Fondo;
+    private JLabel Ciudad;
+    private JButton Calcular;
+    private JButton Clear;
+    private JTextField ingresar;
+    private JComboBox lista;
+    
+    public Main(String Titulo){//inicio cosntructor
+    
+        this.setName(Titulo);
+        this.setSize(400, 600);
+        this.setLocationRelativeTo(null);
+        this.setMaximumSize(this.getSize());
+        this.setMinimumSize(this.getSize());
+        this.setResizable(false);
+        this.pack();
+       
+    }//fin cosntructor
 
     public static void main(String[] args) {
 
@@ -35,33 +58,7 @@ public class Main {
         terminalesDisponibles = cargarTerminalesDisponibles();
         if (terminalesDisponibles == null)
             System.exit(1);
-        /*probar imprimir terminales*/
-
-//        System.out.println("No  Aereolinea    TSalida   TLlegada     (Cost US$)");
-//     /*   for (int i = 0; i < grafito.grafito.getEdgeCount(); i++) {//inicio for
-//            System.out.println((i + 1));
-//
-//
-//        }//fin for*/
-//        
-//        Object[] Vertices = grafito.grafito.getVertices().toArray();
-//        Object[] Aristas = grafito.grafito.getEdges().toArray();
-//      
-//        for (int i = 0; i <Vertices.length; i++) {
-//           // System.out.println((i+1)+" "+Vertices[i]);
-//            
-//           // System.out.println(Vertices[0].toString()+" "+grafito.grafito.getIncidentEdges(Vertices[0].toString()));
-//            //System.out.println(Vertices[0].toString()+" "+grafito.grafito.getNeighbors(Vertices[0].toString()));
-//            for (int j = 1; j <Vertices.length; j++) {
-//                
-//            
-//             System.out.println(Vertices[i].toString()+" "+grafito.grafito.findEdge(Vertices[i].toString(),Vertices[j].toString())+Vertices[j].toString());
-//             }
-//          }//
-//        
-//         for (int i = 0; i <Aristas.length; i++) {
-//          //  System.out.println((i+1)+" "+Aristas[i]);
-//        }
+        
         System.out.println(""
                 + "*****************************************************\n"
                 + "**     Universidad Tecnologica Centroamericana     **\n"
@@ -72,6 +69,7 @@ public class Main {
         
         Queue<String> ciudades = new LinkedList<String>();
         ciudades.add("BWI");
+       
         ciudades.add("TGU");
         //Aqui llamar a la funcion validarTerminales, retorna false si uno no coincide
         
