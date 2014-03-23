@@ -269,7 +269,7 @@ public class Master extends javax.swing.JFrame {//INICIO CLASE MAIN
 
     private void CALCULARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CALCULARMouseClicked
 
-
+        
         if (ciudades.isEmpty() == false &&nums.size()>=2) {//verificar si la cola esta vacia
 
             mensaje.setText("Tour mediante ruta mas corta(barata),"
